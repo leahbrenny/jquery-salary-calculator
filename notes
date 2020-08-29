@@ -1,0 +1,29 @@
+Base Mode
+------------------------------
+[] Inputs
+    [] First name (text)
+    [] Last name (text)
+    [] ID number (number)
+    [] Job Title (text)
+    [] Annual Salary (number)
+[] Submit button
+[] TABLE?????
+[] Inputs push into an array/table via submit button
+[] Inputs clear when pushed
+[] Objects are displayed in a table on the DOM
+[] Total counter called monthlyCost that sums all objects (Annual Salary / 12)
+[] If total monthlyCost is over 20k add red background to monthlyCost
+[] Delete button (on table???)
+    [] Removes employee from DOM (doesn't need to update monthlyCost)
+-------------------------------
+
+Stretch Mode
+-------------------------------
+[] Add styling!
+[] Extra functionality?
+    ~Ideas~
+    [] Show remaining budget? (monthly and/or yearly)
+    [] Highlight the most costly employee
+    [] Add the ability to sort the table by name/cost/ect...
+    [] Don't allow an employee to be created unless all the inputs are filled
+[] Update monthlyCost when employee is deleted
