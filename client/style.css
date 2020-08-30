@@ -1,0 +1,21 @@
+body{
+    background: beige;
+}
+h1{
+    text-align: center;
+    background: lightsteelblue;
+}
+h2{
+    text-decoration: underline;
+}
+table{
+    border: 1px solid black;
+    background: lavender;
+}
+th{
+    border: 1px solid black;
+    background: lightsteelblue;
+}
+td{
+    border: 1px dotted black;
+}
