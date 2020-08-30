@@ -17,6 +17,10 @@ Base Mode
     [] Removes employee from DOM (doesn't need to update monthlyCost)
 -------------------------------
 
+BUGS TO FIX
+[] adds entire array when pushing new employee
+
+
 Stretch Mode
 -------------------------------
 [] Add styling!

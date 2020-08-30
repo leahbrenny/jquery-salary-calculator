@@ -35,7 +35,7 @@ function addEmployee(){
         Last: $( '#lastNameInput' ).val(),
         Id: $( '#idNumberInput' ).val(),
         Title: $('#jobTitleInput').val(),
-        Salary: $('annualSalaryInput').val() 
+        Salary: $('#annualSalaryInput').val() 
     } // end newEmployee
     employees.push( newEmployee );
     displayEmployees();
@@ -54,11 +54,19 @@ function displayEmployees(){
         <td>${ employees[i].Id }</td> 
         <td> ${ employees[i].Title }</td> 
         <td>${ employees[i].Salary}</td>
-        <td><button>Delete</button></td>
+        <td><button class="employeeDelete">Delete</button></td>
         </tr>` );
-        
     } // end for
+    calculateMonthlyCost()
 } // end displayEmployees
 
+function calculateMonthlyCost() {
+    let el = $('#monthlyCostOut');
+    for (let i = 0; i < employees.length; i++) {
+        yearlyCost+= employees[i].Salary;
+    }
+    monthlyCost= yearlyCost/12
+    el.append(Number(monthlyCost));
+}//end calculateMonthlyCost
 
 
