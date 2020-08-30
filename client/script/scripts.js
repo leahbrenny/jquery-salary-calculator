@@ -41,7 +41,6 @@ function addEmployee(){
 } // end addEmployee
 
 function deleteEmployee() {
-    $(this).empty();
     console.log('clicky');
 }//end deleteEmployee
 
