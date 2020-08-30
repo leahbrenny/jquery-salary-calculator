@@ -8,8 +8,8 @@ Base Mode
     [x] Annual Salary (number)
 [x] Submit button
 [x] TABLE?????
-[] Inputs push into an array/table via submit button
-[] Inputs clear when pushed
+[x] Inputs push into an array/table via submit button
+[x] Inputs clear when pushed
 [] Objects are displayed in a table on the DOM
 [] Total counter called monthlyCost that sums all objects (Annual Salary / 12)
 [] If total monthlyCost is over 20k add red background to monthlyCost
@@ -20,6 +20,7 @@ Base Mode
 Stretch Mode
 -------------------------------
 [] Add styling!
+    [] Display "Error not all inputs are completed" if missing inputs
 [] Extra functionality?
     ~Ideas~
     [] Show remaining budget? (monthly and/or yearly)
