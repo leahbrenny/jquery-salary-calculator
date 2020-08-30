@@ -4,7 +4,7 @@ function onReady() {
   console.log("Ready to go");
   //put all initial load functions in here
 
-  $("#submitEmployeeBtn").on("click", changeInputs);
+  $("#submitEmployeeBtn").on("click", addEmployee);
   $("#inputs input").blur(function () {
     if (!$(this).val()) {
       $(this).addClass("error");
@@ -22,47 +22,31 @@ let employees = [];
 let yearlyCost = 0;
 
 //all to be called functions down here
-function changeInputs() {
-  firstName = $("#firstNameInput").val();
-  lastName = $("#lastNameInput").val();
-  idNumber = $("#idNumberInput").val();
-  jobTitle = $("#jobTitleInput").val();
-  annualSalary = $("#annualSalaryInput").val();
-  if (firstName && lastName && idNumber && jobTitle && annualSalary) {
-    newEmployee(firstName, lastName, idNumber, jobTitle, annualSalary);
-    displayEmployee();
-    $("#firstNameInput").val("");
-    $("#lastNameInput").val("");
-    $("#idNumberInput").val("");
-    $("#jobTitleInput").val("");
-    $("#annualSalaryInput").val("");
-  } //end if
-  else {
-    console.log("You are missing an input!");
-    return false;
-  } //end else
-} //end changeInputs
 
-function newEmployee(firstName, lastName, idNumber, jobTitle, annualSalary) {
-  console.log(
-    "in newEmployee:",
-    firstName,
-    lastName,
-    idNumber,
-    jobTitle,
-    annualSalary
-  );
-  const newEmployeeObject = {
-    "First name": firstName,
-    "Last name": lastName,
-    "Id Number": idNumber,
-    "Job Title": jobTitle,
-    "Annual Salary": annualSalary,
-  }; // end newCarObject
-  employees.push(newEmployeeObject);
-  return true;
-} // end newEmployee
+function addEmployee(){
+    console.log( 'in addEmployee' );
+    const newEmployee = {
+        First: $( '#firstNameInput' ).val(),
+        Last: $( '#lastNameInput' ).val(),
+        Id: $( '#idNumberInput' ).val(),
+        Title: $('#jobTitleInput').val(),
+        Salary: $('annualSalaryInput').val() 
+    } // end newEmployee
+    employees.push( newEmployee );
+    displayEmployees();
+} // end addEmployee
 
-function displayEmployee() {
-  console.log("in displayEmployee");
-}
+function displayEmployees(){
+    console.log( 'in displayEmployees' );
+    // target a table element on DOM
+    let el = $( '#employeeTable' );
+    // empty el
+    el.empty();
+    // loop through employees
+    for( let i=0; i<employees.length; i++ ){
+        // append each employee to the table 
+        el.append( `<tr><td>${ employees[i].First } </td> <td> ${ employees[i].Last } </td>
+            <td>${ employees[i].Id } </td> <td> ${ employees[i].Title } </td> 
+            <td>${ employees[i].Salary} </td></tr>` );
+    } // end for
+} // end displayEmployees
