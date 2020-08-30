@@ -8,23 +8,22 @@ function onReady() {
   $("#inputs input").blur(function () {
     if (!$(this).val()) {
       $(this).addClass("error");
-      document.getElementById("submitEmployeeBtn").disabled = true;
+      $("#submitEmployeeBtn").disabled = true;
     } //end if
     if ($('#idNumberInput').val()<0 || $('#annualSalaryInput').val()<0){
     $('#idNumberInput').addClass("error");
     $('#annualSalaryInput').addClass("error");
-    document.getElementById("submitEmployeeBtn").disabled = true;
+    $("#submitEmployeeBtn").disabled = true;
     }//end if
     else {
       $(this).removeClass("error");
-      document.getElementById("submitEmployeeBtn").disabled = false;
+      $("#submitEmployeeBtn").disabled = false;
     } //end else
   }); //end errors
 } //end onReady
 
 //pre existing variables
 let employees = [];
-let yearlyCost = 0;
 
 //all to be called functions down here
 
@@ -40,6 +39,11 @@ function addEmployee(){
     employees.push( newEmployee );
     displayEmployees();
 } // end addEmployee
+
+function deleteEmployee() {
+    $(this).empty();
+    console.log('clicky');
+}//end deleteEmployee
 
 function displayEmployees(){
     console.log( 'in displayEmployees' );
@@ -63,19 +67,28 @@ function displayEmployees(){
         <td>${ employees[i].Id }</td> 
         <td> ${ employees[i].Title }</td> 
         <td>${ employees[i].Salary}</td>
-        <td><button class="employeeDelete">Delete</button></td>
+        <td><button class="employeeDeleteBtn">Delete</button></td>
         </tr>` );
     } // end for
+    $('.employeeDeleteBtn').on('click', deleteEmployee);
     calculateMonthlyCost()
 } // end displayEmployees
 
-function calculateMonthlyCost() {
-    let el = $('#monthlyCostOut');
-    for (let i = 0; i < employees.length; i++) {
-        yearlyCost+= employees[i].Salary;
-    }
-    monthlyCost= yearlyCost/12
-    el.append(Number(monthlyCost));
-}//end calculateMonthlyCost
+function calculateMonthlyCost(){
+    let yearlyCost = 0;
+    for (let i = 0; i < employees.length; i++){
+        yearlyCost += Number(employees[ i ].Salary); 
+    }//end for
+      let el = $('#monthlyCostOut');
+      el.empty();
+      el.append( yearlyCost/12 );
+      if ((yearlyCost/12) > 20000) {
+          $('#monthlyCost').css('background', 'red');
+      }
+      else
+      return false
+    }//end of calculateMonthlyCost
 
+
+    
 
