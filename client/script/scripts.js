@@ -45,7 +45,16 @@ function displayEmployees(){
     console.log( 'in displayEmployees' );
     // target a table element on DOM
     let el = $( '#employeeTable' );
+    el.empty();
     // loop through employees
+    el.append(`<tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>ID Number</th>
+        <th>Job Title</th>
+        <th>Annual Salary</th>
+        <th></th>
+    </tr>`);
     for( let i=0; i<employees.length; i++ ){
         // append each employee to the table 
         el.append( `<tr>
