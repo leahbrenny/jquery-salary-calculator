@@ -10,7 +10,7 @@ Base Mode
 [x] TABLE?????
 [x] Inputs push into an array/table via submit button
 [x] Inputs clear when pushed
-[] Objects are displayed in a table on the DOM
+[x] Objects are displayed in a table on the DOM
 [] Total counter called monthlyCost that sums all objects (Annual Salary / 12)
 [] If total monthlyCost is over 20k add red background to monthlyCost
 [] Delete button (on table???)

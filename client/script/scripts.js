@@ -10,6 +10,11 @@ function onReady() {
       $(this).addClass("error");
       document.getElementById("submitEmployeeBtn").disabled = true;
     } //end if
+    if ($('#idNumberInput').val()<0 || $('#annualSalaryInput').val()<0){
+    $('#idNumberInput').addClass("error");
+    $('#annualSalaryInput').addClass("error");
+    document.getElementById("submitEmployeeBtn").disabled = true;
+    }//end if
     else {
       $(this).removeClass("error");
       document.getElementById("submitEmployeeBtn").disabled = false;
@@ -40,13 +45,20 @@ function displayEmployees(){
     console.log( 'in displayEmployees' );
     // target a table element on DOM
     let el = $( '#employeeTable' );
-    // empty el
-    el.empty();
     // loop through employees
     for( let i=0; i<employees.length; i++ ){
         // append each employee to the table 
-        el.append( `<tr><td>${ employees[i].First } </td> <td> ${ employees[i].Last } </td>
-            <td>${ employees[i].Id } </td> <td> ${ employees[i].Title } </td> 
-            <td>${ employees[i].Salary} </td></tr>` );
+        el.append( `<tr>
+        <td>${ employees[i].First }</td> 
+        <td> ${ employees[i].Last }</td>
+        <td>${ employees[i].Id }</td> 
+        <td> ${ employees[i].Title }</td> 
+        <td>${ employees[i].Salary}</td>
+        <td><button>Delete</button></td>
+        </tr>` );
+        
     } // end for
 } // end displayEmployees
+
+
+
