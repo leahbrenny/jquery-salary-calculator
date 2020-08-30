@@ -1,13 +1,13 @@
 Base Mode
 ------------------------------
-[] Inputs
-    [] First name (text)
-    [] Last name (text)
-    [] ID number (number)
-    [] Job Title (text)
-    [] Annual Salary (number)
-[] Submit button
-[] TABLE?????
+[x] Inputs
+    [x] First name (text)
+    [x] Last name (text)
+    [x] ID number (number)
+    [x] Job Title (text)
+    [x] Annual Salary (number)
+[x] Submit button
+[x] TABLE?????
 [] Inputs push into an array/table via submit button
 [] Inputs clear when pushed
 [] Objects are displayed in a table on the DOM
