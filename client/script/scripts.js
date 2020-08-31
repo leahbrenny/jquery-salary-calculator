@@ -37,16 +37,12 @@ function addEmployee(){
     displayEmployees();
 } // end addEmployee
 
-function deleteEmployee() {
-    console.log('clicky');
-            let val = $(this).closest('tr').find(".first").text();
-            console.log(val);
-            let index = employees.findIndex(function(newEmployee) {return newEmployee.first == val})
-            console.log(index)
-            employees.splice(index, 1)
-            console.log(employees);
-            displayEmployees();
-}//end deleteEmployee
+// a remove button that will remove an employee from the table on click
+function deleteEmployee(){
+    $('#employeeTable').on( 'click', '.employeeDeleteBtn', function(){
+      $( this ).closest( '.employeeObject' ).remove();
+    }); // end on click
+  } // end removeEmployee
 
 function displayEmployees(){
     console.log( 'in displayEmployees' );
@@ -64,7 +60,7 @@ function displayEmployees(){
     </tr>`);
     for( let i=0; i<employees.length; i++ ){
         // append each employee to the table 
-        el.append( `<tr>
+        el.append( `<tr class="employeeObject">
         <td>${ employees[i].First }</td> 
         <td> ${ employees[i].Last }</td>
         <td>${ employees[i].Id }</td> 
@@ -73,6 +69,11 @@ function displayEmployees(){
         <td><button class="employeeDeleteBtn">Delete</button></td>
         </tr>` );
     } // end for
+    $( '#firstNameInput' ).val('');
+    $( '#lastNameInput' ).val('');
+    $( '#idNumberInput' ).val('');
+    $('#jobTitleInput').val('');
+    $('#annualSalaryInput').val(''); 
     $('.employeeDeleteBtn').on('click', deleteEmployee);
     calculateMonthlyCost()
 } // end displayEmployees

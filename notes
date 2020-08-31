@@ -14,7 +14,7 @@ Base Mode
 [x] Total counter called monthlyCost that sums all objects (Annual Salary / 12)
 [x] If total monthlyCost is over 20k add red background to monthlyCost
 [x] Delete button (on table???)
-    [] Removes employee from DOM (doesn't need to update monthlyCost)
+    [x] Removes employee from DOM (doesn't need to update monthlyCost)
 -------------------------------
 
 BUGS TO FIX
