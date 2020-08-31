@@ -8,19 +8,16 @@ function onReady() {
   $("#inputs input").blur(function () {
     if (!$(this).val()) {
       $(this).addClass("error");
-      $("#submitEmployeeBtn").disabled = true;
+      document.getElementById("submitEmployeeBtn").disabled = true;
     } //end if
-    if ($('#idNumberInput').val()<0 || $('#annualSalaryInput').val()<0){
-    $('#idNumberInput').addClass("error");
-    $('#annualSalaryInput').addClass("error");
-    $("#submitEmployeeBtn").disabled = true;
-    }//end if
     else {
-      $(this).removeClass("error");
-      $("#submitEmployeeBtn").disabled = false;
+      $('#inputs input').removeClass("error");
+      document.getElementById("submitEmployeeBtn").disabled = false;
     } //end else
   }); //end errors
 } //end onReady
+
+
 
 //pre existing variables
 let employees = [];
@@ -42,6 +39,13 @@ function addEmployee(){
 
 function deleteEmployee() {
     console.log('clicky');
+            let val = $(this).closest('tr').find(".first").text();
+            console.log(val);
+            let index = employees.findIndex(function(newEmployee) {return newEmployee.first == val})
+            console.log(index)
+            employees.splice(index, 1)
+            console.log(employees);
+            displayEmployees();
 }//end deleteEmployee
 
 function displayEmployees(){
@@ -87,7 +91,3 @@ function calculateMonthlyCost(){
       else
       return false
     }//end of calculateMonthlyCost
-
-
-    
-
